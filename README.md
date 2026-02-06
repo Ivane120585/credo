@@ -1,71 +1,164 @@
-# Credo [![CI Tests](https://github.com/rrrene/credo/workflows/CI%20Tests/badge.svg)](https://github.com/rrrene/credo/actions?query=branch%3Amaster) [![Inline docs](https://inch-ci.org/github/rrrene/credo.svg?branch=master)](https://hexdocs.pm/credo)
 
-Credo is a static code analysis tool for the Elixir language with a focus on teaching and code consistency.
+🇬🇪 საქართველოს ბანკის ინტეგრაცია — Nita123 Banking Architecture
 
-It can show you refactoring opportunities in your code, complex code fragments, warn you about common mistakes, show inconsistencies in your naming scheme and - if needed - help you enforce a desired coding style.
+🇬🇧 Bank of Georgia Integration — Nita123 Banking Architecture
 
+---
 
-![Credo](https://raw.github.com/rrrene/credo/master/assets/screenshot.png)
+🇬🇪 1. დანიშნულება
 
+🇬🇧 1. Purpose
 
-## Installation and Usage
+საქართველოს ბანკის (Bank of Georgia) მოდული უზრუნველყოფს უსაფრთხო, სტაბილურ და სტანდარტებზე დაფუძნებულ კომუნიკაციას ბანკის API‑ებთან.  
+The Bank of Georgia module provides secure, stable, and standards‑compliant communication with BoG APIs.
 
-The easiest way to add Credo to your project is by [using Mix](http://elixir-lang.org/getting-started/mix-otp/introduction-to-mix.html).
+მოდული შექმნილია და მხარდაჭერილია ივანე შაორშაძის მიერ.  
+The module is authored and maintained by Ivane Shaorshadze.
 
-Add `:credo` as a dependency to your project's `mix.exs`:
+---
 
-```elixir
-defp deps do
-  [
-    {:credo, "~> 1.7", only: [:dev, :test], runtime: false}
-  ]
-end
-```
+🇬🇪 2. ძირითადი შესაძლებლობები
 
-And run:
+🇬🇧 2. Key Features
 
-    $ mix deps.get
+- OAuth2 ავტორიზაცია  
+- OAuth2 authorization  
 
-    $ mix credo
+- უსაფრთხო REST API კომუნიკაცია  
+- Secure REST API communication  
 
-## Documentation
+- JWS ხელმოწერა  
+- JWS request signing  
 
-Documentation is [available on Hexdocs](https://hexdocs.pm/credo/)
+- JWE დაშიფვრა  
+- JWE payload encryption  
 
-## Integrations
+- TLS 1.2+  
+- TLS 1.2+ transport security  
 
-### IDE/Editor
+- ტრანზაქციების როუტინგი  
+- Transaction routing  
 
-Some IDEs and editors are able to run Credo in the background and mark issues inline.
+- ლოგირება და აუდიტი  
+- Full logging and audit trail  
 
-* [IntelliJ Elixir](https://github.com/KronicDeth/intellij-elixir#credo) - Elixir plugin for JetBrains IDEs (IntelliJ IDEA, Rubymine, PHPStorm, PyCharm, etc)
-* [linter-elixir-credo](https://atom.io/packages/linter-elixir-credo) - Package for Atom editor (by @smeevil)
-* [Elixir Linter (Credo)](https://marketplace.visualstudio.com/items?itemName=pantajoe.vscode-elixir-credo) - VSCode extension (by @pantajoe)
-* [flycheck](https://www.flycheck.org/en/latest/languages.html#elixir) - Emacs syntax checking extension
-* [kakoune](https://github.com/mawww/kakoune/wiki/Lint#elixir) - Config for linting support in Kakoune editor
-* [Neovim via null-ls](https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/lua/null-ls/builtins/diagnostics/credo.lua) - diagnostics builtin
+---
 
-### Automated Code Review
+🇬🇪 3. უსაფრთხოების სტანდარტები
 
-* [Codacy](https://www.codacy.com/) - checks your code from style to security, duplication, complexity, and also integrates with coverage.
+🇬🇧 3. Security Standards
 
-## Contributing
+- OAuth2 Client Credentials  
+- TLS 1.2+  
+- JWS/JWE  
+- BoG certificate validation  
+- Request/Response logging  
+- Token regeneration audit  
 
-1. [Fork it!](http://github.com/rrrene/credo/fork)
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+ყველა სერტიფიკატის განახლება timestamp‑დება.  
+All certificate updates are timestamped and archived.
 
+---
 
+🇬🇪 4. მოდულის სტრუქტურა
 
-## Author
+🇬🇧 4. Module Structure
 
-René Föhring (@rrrene)
+`
+/bog
+  ├── routes/
+  ├── services/
+  ├── certificates/
+  ├── handlers/
+  ├── logs/
+  └── config.json
+`
 
+---
 
+🇬🇪 5. API ნაკადები
 
-## License
+🇬🇧 5. API Flows
 
-Credo is released under the MIT License. See the LICENSE file for further
-details.
+🇬🇪 ავტორიზაცია
+
+🇬🇧 Authorization
+1. OAuth2 ტოკენის მოთხოვნა  
+2. Token request  
+3. Token storage  
+4. Token regeneration logging  
+
+🇬🇪 გადახდები
+
+🇬🇧 Payments
+1. ინიციაცია / Initiation  
+2. JWS ხელმოწერა / JWS signing  
+3. JWE დაშიფვრა / JWE encryption  
+4. ბანკის ვალიდაცია / Bank validation  
+5. პასუხის დამუშავება / Response mapping  
+
+🇬🇪 ანგარიშების ინფორმაცია
+
+🇬🇧 Account Information
+1. მომხმარებლის ავტორიზაცია  
+2. Consent validation  
+3. Account data retrieval  
+4. Structured response  
+
+---
+
+🇬🇪 6. ლოგირება და აუდიტი
+
+🇬🇧 6. Logging & Audit
+
+ლოგირდება:  
+Logged:
+
+- დრო / Timestamp  
+- Endpoint  
+- სერტიფიკატი / Certificate  
+- ტოკენის მდგომარეობა / Token state  
+- პასუხის კოდი / Response code  
+- შეცდომები / Errors  
+
+აუდიტის ჩანაწერები არ იცვლება.  
+Audit entries cannot be modified.
+
+---
+
+🇬🇪 7. ავტორი
+
+🇬🇧 7. Author
+
+ივანე შაორშაძე  
+Ivane Shaorshadze  
+Sovereign System Architect · Nita123 Architecture
+
+ყველა commit და ცვლილება მოდის Verified Branch‑ებიდან.  
+All commits and changes originate from verified branches.
+
+---
+
+🇬🇪 8. დაკავშირებული მოდულები
+
+🇬🇧 8. Related Modules
+
+- TBC  
+- Credo  
+- Liberty  
+- iPay  
+- XS2A / OpenBanking  
+- Flame Codex  
+- Sovereign Capsule Tree  
+
+---
+
+🇬🇪 9. შენიშვნა
+
+🇬🇧 9. Note
+
+ეს მოდული არის Nita123 არქიტექტურის ნაწილი.  
+This module is part of the Nita123 architecture.
+
+არანაირი გარე შაბლონი ან დაუმტკიცებელი ცვლილება არ გადაფარავს ავტორის ფენას.  
+No external template or unauthorized modification overrides the author layer.
